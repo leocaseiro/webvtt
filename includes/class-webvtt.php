@@ -36,7 +36,8 @@ class WebVTT {
 	 */
 	function enqueue_playlist_script() {
 		wp_deregister_script( 'wp-playlist' );
-		wp_register_script( 'wp-playlist', plugin_dir_url( __FILE__ ) . 'js/wp-playlist.min.js', array( 'wp-util', 'backbone', 'mediaelement' ), null, true );
+		wp_register_script( 'wp-event-manager', plugin_dir_url( __FILE__ ) . 'js/wp-event-manager.min.js', array(), null, true );
+		wp_register_script( 'wp-playlist', plugin_dir_url( __FILE__ ) . 'js/wp-playlist.min.js', array( 'wp-event-manager', 'wp-util', 'backbone', 'mediaelement' ), null, true );
 	}
 
 	/**

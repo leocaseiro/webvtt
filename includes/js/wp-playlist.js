@@ -34,6 +34,21 @@
 				this.settings = _.clone( _wpmejsSettings );
 			}
 			this.settings.success = this.bindPlayer;
+
+			/**
+			 * Apply Filters for mediaelements.js settings
+			 * Useful to sort video options or add mediaelements plugins
+			 *
+			 * Example:
+			 *  customSettings = function(settings) {
+			 *		settings.features = ['playpause','current','progress','duration','tracks','volume','speed','fullscreen'];
+			 *		return settings;
+			 *	};
+			 *
+			 *	wp.hooks.addFilter('wp-playlist-settings', customSettings);
+			 */
+			wp.hooks.applyFilters('wp-playlist-settings', this.settings);
+
 			this.setPlayer();
 		},
 
